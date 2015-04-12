@@ -15,7 +15,7 @@ cleanup() {
 }
 
 list_orphans() {
-	source ./pkg-list.sh "$(hostname)"
+	source ~/.pkg-list.sh "$(hostname)"
 	wanted_pkg=()
 	known_groups=($(pacman -Sqg))
 
@@ -50,7 +50,7 @@ deinstall_orphans() {
 }
 
 install_packages() {
-	source ./pkg-list.sh "$(hostname)"
+	source ~/.pkg-list.sh "$(hostname)"
 	if [ ! -z "$aflag" ]; then
 		if ! type "yaourt" > /dev/null; then
 			echo "Error: yaourt is not installed!" >&2
